@@ -1,7 +1,7 @@
 
 //Initializes Arduino Serial Port
 var serialPort = require("serialport");
-  sp = new serialPort("/dev/cu.usbmodem621", { //Found it by Tools -> Port -> /dev/cu.XXXX
+  sp = new serialPort("/dev/cu.usbmodem411", { //Found it by Tools -> Port -> /dev/cu.XXXX
     baudRate:9600 //Serial.begin
 });
 //Translate Buffer to UTF8 string

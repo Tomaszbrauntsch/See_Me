@@ -25,6 +25,7 @@ void loop() {
   inches = (duration/2) / 74;
 
   Serial.print(inches);
+  Serial.println();
 
   delay(2000);
 }
