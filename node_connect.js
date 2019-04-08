@@ -29,3 +29,10 @@ app.get('', function(req, res){
   res.send(data_fixed);
 })
 app.listen(3000);
+
+//Saves data_fixed as text file
+var fs = require("fs");
+fs.writeFile('ArdData.txt', data_fixed, function(err) {
+  if (err) throw err;
+  console.log("saved!");
+});
