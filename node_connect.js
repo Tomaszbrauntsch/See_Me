@@ -1,4 +1,3 @@
-
 //Initializes Arduino Serial Port
 var serialPort = require("serialport");
   sp = new serialPort("/dev/cu.usbmodem411", { //Found it by Tools -> Port -> /dev/cu.XXXX
@@ -16,7 +15,7 @@ sp.on("open", function() {
 
 //Creates Server via http (sends out text of serialport data)
 var http=require('http');
-var server=http.createServer((function(request,response)
+http.createServer((function(request,response)
 {
   response.writeHead(200, {"Content-Type" : "text/html"});
   response.end(data_fixed);
@@ -27,12 +26,8 @@ var express = require("express");
 var app = express();
 app.get('', function(req, res){
   res.send(data_fixed);
+//Initializes Say and says Data_fixed
+  const say = require('say')
+  say.speak(data_fixed + " inches away!");
 })
 app.listen(3000);
-
-//Saves data_fixed as text file
-var fs = require("fs");
-fs.writeFile('ArdData.txt', data_fixed, function(err) {
-  if (err) throw err;
-  console.log("saved!");
-});
