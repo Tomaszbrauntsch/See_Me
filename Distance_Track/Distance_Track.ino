@@ -26,6 +26,4 @@ void loop() {
 
   Serial.print(inches);
   Serial.println();
-
-  delay(1500);
 }

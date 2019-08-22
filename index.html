@@ -1,8 +1,41 @@
+<!doctype HTML>
 <html>
   <head>
+	 <style>
+		html, body{
+		width:100%;
+		height:100%;
+		 }
+		.maintext{
+			width:100%;
+			height:90%;
+			background-color:blue;
+		 }
+	  </style>
+	  
+	  <!--The first script is to declared the library JQuery, when $ is in the code its JQuery-->
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	  <script>
+	// Obtaining the variable data_fixed from node_connect.js and assigning it to the id "datasent"
+$(document).ready(function(){
+  $("#initial").mouseover(function(){
+//We are collecting information that is being hosted on lh:3000 which is the info
+    	$.get('http://localhost:3000/data', {}, function(data){
+			document.getElementById('datasent').innerHTML = data;
+			console.log(data);
+			//Data to Speech
+			var synth = window.speechSynthesis;
+			data_words = data;
+			var dataspoken = new SpeechSynthesisUtterance(data_words);
+			synth.speak(dataspoken);
+		});
+  });
+});
+	  </script>
   </head>
   <body>
-    <h1>Loaded in</h1>
-    <script src="node_connect.js"></script>
+	  <p class="maintext" id="initial" onmouseover="TTS">Text</p>
+	  <h2 id="datasent"></h2>
+	  <meta http-equiv="refraesh" content="1.8">
   </body>
 </html>

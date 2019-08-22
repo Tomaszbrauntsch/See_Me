@@ -7,3 +7,5 @@ Usage:
 Currently what to work on:
 [ ] Integrating Node into HTML (connecting the backend and frontend to obtain the file from back)
 [ ] Integrating Sound to play when number / how far they are from item
+
+Using SpeechSynthesis API for Text to Speech / Speaking
